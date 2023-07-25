@@ -1,0 +1,68 @@
+:root, :before, :after {
+    --navbar-height: 75px;
+    --navbar-toggler: 40px;
+}
+
+@include devices(xxl) {
+
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-display: swap;
+    outline: none;
+    box-sizing: border-box;
+
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    @include center;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    counter-reset: section;
+    overflow-x: hidden;
+
+    font-size: 16px;
+
+    @include devices(xxl){
+        font-size: 13px;
+    }
+
+    @include devices(xl){
+        font-size: 10px;
+    }
+    @include devices(md){
+        font-size: 7px;
+    }
+}
+
+body {
+    font-family: $font--body;
+    background-color: $color--body-background;
+    color: $color--body-foreground;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: $color--body-foreground;
+}

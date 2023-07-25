@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$color--body-background: #000000;
+$color--body-foreground: #ffffff;
+
+$color--landing-background: #131619;
+
+$color--primary: #95ff37;
+$color--secondary: #20aed2;
+$color--other: #22ffd6;
+
+$font--body: 'Plus Jakarta Sans', sans-serif;
+
+$fontWeight--thin: 100;
+$fontWeight--extra-light: 200;
+$fontWeight--light: 300;
+$fontWeight--normal: 400;
+$fontWeight--medium: 500;
+$fontWeight--semi-bold: 600;
+$fontWeight--bold: 700;
+$fontWeight--ultra-bold: 800;
+$fontWeight--black: 900;
+
+$intro-darken-amount: 40%;
+
+$cards-title-fontSize: 25px;
+$cards-title-font-weight: $fontWeight--bold;
+
+$cards-p-fontSize: 18px;
+$cards-p-font-weight: $fontWeight--medium;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1500px;
+
+$wrapper--size: 1440px;
+$wrapper--mobilePadding: 20px;
+$wrapperBig--size: 1820px;

@@ -1,0 +1,113 @@
+@mixin devices ($breakpoint) {
+  @if $breakpoint ==sm {
+    @media only screen and (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==md {
+    @media only screen and (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==lg {
+    @media only screen and (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==xl {
+    @media only screen and (max-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==xxl {
+    @media only screen and (max-width: $breakpoint-xxl) {
+      @content;
+    }
+  }
+}
+
+@mixin flex($flex-direction: row, $justify-content: flex-start, $align-items: flex-start, $flex-wrap: nowrap, $flex-type: flex) {
+  display: $flex-type;
+  flex-wrap: $flex-wrap;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin wrap() {
+  max-width: $wrapper--size;
+  width: 100%;
+  margin: auto;
+
+  @include devices(xxl) {
+    padding-left: $wrapper--mobilePadding;
+    padding-right: $wrapper--mobilePadding;
+  }
+}
+
+@mixin wrap-big() {
+  max-width: $wrapperBig--size;
+  width: 100%;
+  margin: auto;
+
+  @include devices(xxl) {
+    padding-left: $wrapper--mobilePadding;
+    padding-right: $wrapper--mobilePadding;
+  }
+}
+
+@mixin wrap-big-fluid() {
+  padding-left: calc((100% - $wrapperBig--size) / 2);
+  padding-right: calc((100% - $wrapperBig--size) / 2);
+
+  @include devices(xxl) {
+    padding-left: $wrapper--mobilePadding;
+    padding-right: $wrapper--mobilePadding;
+  }
+}
+
+@mixin wrap-fluid() {
+  padding-left: calc((100% - $wrapper--size) / 2);
+  padding-right: calc((100% - $wrapper--size) / 2);
+
+  @include devices(xxl) {
+    padding-left: $wrapper--mobilePadding;
+    padding-right: $wrapper--mobilePadding;
+  }
+}
+
+@mixin aspect($width: 16, $height: 9, $inherit: false) {
+  aspect-ratio: $width / $height!important;
+
+  @supports not (aspect-ratio: $width  /  $height) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: calc((#{$height} / #{$width}) * 100%);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  @if $inherit ==ture {
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+}

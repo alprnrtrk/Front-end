@@ -1,0 +1,282 @@
+@keyframes garient-loop {
+    0% {
+        background-position: 0% 92%
+    }
+
+    50% {
+        background-position: 100% 9%
+    }
+
+    100% {
+        background-position: 0% 92%
+    }
+}
+
+@keyframes fade-up {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.intro {
+    @include flex(column, center, center);
+    @include wrap-fluid;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: 100svh;
+
+    padding-top: calc(var(--navbar-height) * 2);
+
+    background: rgb(242, 190, 92);
+    background: linear-gradient(45deg, darken($color--primary, $intro-darken-amount) 0%, darken($color--secondary, $intro-darken-amount) 100%);
+    background-size: 600% 600%;
+
+    animation: garient-loop infinite linear 10s;
+
+    &__slogan {
+        ul {
+            @include flex(row, center, center);
+
+            list-style: none;
+
+            li {
+                margin: 0 15px;
+
+                &:hover {
+                    &:nth-child(1) {
+                        i {
+                            color: #e54c21;
+                        }
+                    }
+
+
+                    &:nth-child(2) {
+                        i {
+                            color: #254bdd;
+                        }
+                    }
+
+
+                    &:nth-child(3) {
+                        i {
+                            color: #e8d44d;
+                        }
+                    }
+                }
+
+                i {
+                    color: $color--body-background;
+
+                    font-size: 40px;
+
+                    transition: $global--transition;
+
+                    @include devices(xl) {
+                        font-size: 30px;
+                    }
+                }
+
+                @include devices(xl) {
+                    margin: 0 5px;
+                }
+            }
+        }
+
+        h1 {
+            margin: 25px 0;
+
+            font-size: 50px;
+
+            color: $color--body-background;
+
+            font-weight: $fontWeight--bold;
+            text-align: center;
+
+            @include devices(xl) {
+                font-size: 30px;
+            }
+
+            span {
+                font-size: inherit;
+
+                color: $color--primary;
+            }
+        }
+
+        p {
+            max-width: 400px;
+            width: 100%;
+
+            min-height: 100px;
+
+            margin: auto;
+
+            color: $color--body-background;
+
+            font-size: 15px;
+
+            font-weight: $fontWeight--semi-bold;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 20px;
+
+            @include devices(xl) {
+                font-size: 15px;
+
+                line-height: inherit;
+            }
+        }
+    }
+
+    &__services {
+        margin-top: 50px;
+
+        ul {
+            @include flex(row, center, center);
+
+            li {
+                @include flex(column, flex-start, center);
+
+                max-width: calc(100% / 4);
+
+                height: 150px;
+
+                margin: 0 20px;
+
+                transition: $global--transition;
+
+                cursor: default;
+
+                animation: fade-up ease .5s;
+                animation-fill-mode: backwards;
+
+                &:nth-child(1) {
+                    animation-delay: .5s;
+                }
+
+                &:nth-child(2) {
+                    animation-delay: 1s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 1.5s;
+                }
+
+                &:nth-child(4) {
+                    animation-delay: 2s;
+                }
+
+                &:hover {
+
+                    transform: translateY(4px);
+
+                    i {
+                        color: $color--primary;
+                    }
+                }
+
+                i {
+                    @include center;
+
+                    position: relative;
+
+                    isolation: isolate;
+
+                    width: 40px;
+                    height: 40px;
+
+                    color: $color--body-background;
+
+                    font-size: 30px;
+
+                    transition: $global--transition;
+
+
+                    @include devices(xl) {
+                        font-size: 25px;
+                    }
+                }
+
+                h2 {
+                    margin: 15px 0 5px 0;
+
+                    color: $color--body-background;
+
+                    text-align: center;
+                    font-size: 20px;
+
+                    transition: $global--transition;
+
+                    @include devices(xl) {
+                        font-size: 15px;
+                    }
+                }
+
+                span {
+                    max-width: 200px;
+
+                    color: transparentize($color--body-background, .5);
+
+                    font-size: 15px;
+                    text-align: center;
+
+                    transition: $global--transition;
+
+
+                    @include devices(xl) {
+                        font-size: 15px;
+                    }
+                }
+
+                @include devices(xl) {
+                    max-width: 100%;
+                }
+            }
+
+            @include devices(xl) {
+                @include flex(column, center, center);
+            }
+        }
+
+        @include devices(xl) {
+            margin-top: 0;
+        }
+    }
+
+    &__effects {
+        position: absolute;
+
+        z-index: -1;
+
+        top: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        background:
+            repeating-linear-gradient(45deg, #0000 calc(-650%/13) calc(50%/13), transparentize($color--other, .9) 0 calc(100%/13),
+                #0000 0 calc(150%/13), transparentize($color--other, .9) 0 calc(200%/13),
+                #0000 0 calc(250%/13), transparentize($color--other, .9) 0 calc(300%/13)), repeating-linear-gradient(45deg, #0000 calc(-650%/13) calc(50%/13), transparentize($color--other, .9) 0 calc(100%/13),
+                #0000 0 calc(150%/13), transparentize($color--other, .9) 0 calc(200%/13),
+                #0000 0 calc(250%/13), transparentize($color--other, .9) 0 calc(300%/13)) 32px 32px,
+            repeating-linear-gradient(-45deg, #0000 calc(-650%/13) calc(50%/13), transparentize($color--other, .9) 0 calc(100%/13),
+                #0000 0 calc(150%/13), transparentize($color--other, .9) 0 calc(200%/13),
+                #0000 0 calc(250%/13), transparentize($color--other, .9) 0 calc(300%/13)), repeating-linear-gradient(-45deg, #0000 calc(-650%/13) calc(50%/13), transparentize($color--other, .9) 0 calc(100%/13),
+                #0000 0 calc(150%/13), transparentize($color--other, .9) 0 calc(200%/13),
+                #0000 0 calc(250%/13), transparentize($color--other, .9) 0 calc(300%/13)) 32px 32px rgba(71, 212, 255, 0);
+        background-size: 64px 64px;
+    }
+}
